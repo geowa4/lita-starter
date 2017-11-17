@@ -20,6 +20,8 @@ gem install bundler
 bundle install --with development --binstubs
 docker-compose up
 bin/guard
+bin/lita start
+# !echo hello, world!
 ```
 
 [asdf]: https://github.com/asdf-vm/asdf

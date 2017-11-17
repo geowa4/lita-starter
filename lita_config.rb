@@ -2,7 +2,7 @@ require './lib/lita_echo'
 
 Lita.configure do |config|
   # The name your robot will use.
-  config.robot.name = 'Lita'
+  config.robot.name = ENV['LITA_NAME']
   config.robot.alias = '!'
 
   # The locale code for the language to use.
@@ -16,7 +16,7 @@ Lita.configure do |config|
   # An array of user IDs that are considered administrators. These users
   # the ability to add and remove other users from authorization groups.
   # What is considered a user ID will change depending on which adapter you use.
-  config.robot.admins = ['geowa4']
+  config.robot.admins = ENV['LITA_ADMINS'].split(',')
 
   # The adapter you want to connect with. Make sure you've added the
   # appropriate gem to the Gemfile.
@@ -24,7 +24,7 @@ Lita.configure do |config|
 
   ## Example: Set options for the Redis connection.
   config.redis = {
-    host: '127.0.0.1',
-    port: 6379
+    host: ENV['REDIS_HOST'],
+    port: ENV['REDIS_PORT']
   }
 end
